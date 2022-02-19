@@ -1,0 +1,11 @@
+Included in this zip archive are a series of data files (csv) with information about fictitious medical claims. The files are organized somewhat like a relational database.
+
+We would like you to write code that takes these files as input, and returns one or more consolidated csv reports that can be used to easily answer the following questions:
+
+1) What is the average per-claim cost across all members?
+
+2) What is the most expensive company in terms of claims cost?
+
+3) Who are the most expensive patients?
+
+You may use whatever programming language you'd prefer. Please submit both the code you write and the final CSV output.
