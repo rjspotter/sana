@@ -1,0 +1,10 @@
+
+group_name == company?
+
+double check Unit Rate is supposed to be blank
+
+assume that the persons in the patients table are patients (not a misnamed members table)
+
+need to be superuser
+
+assuming no duplicate or late-arriving data in claim_line_items
