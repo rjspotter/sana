@@ -1,4 +1,4 @@
-DROP SCHEMA if EXISTS case_study;
+DROP SCHEMA if EXISTS case_study CASCADE;
 CREATE SCHEMA case_study;
 
 DROP TABLE IF EXISTS case_study.raw_claims;

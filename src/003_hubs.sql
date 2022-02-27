@@ -40,9 +40,14 @@ CREATE TABLE case_study.hub_people AS (
   WITH claims_people AS (
     SELECT
       sha256(
-        (COALESCE(patient_first_name::text, '') ||
-        COALESCE(patient_last_name::text, '') ||
-        COALESCE(patient_dob::text, ''))::bytea)
+        lower(
+          regexp_replace(
+            (COALESCE(patient_first_name::text, '') ||
+            COALESCE(patient_last_name::text, '') ||
+            COALESCE(patient_dob::text, '')),
+            '[^0-9a-zA-Z]+', '', 'g'
+          )
+        )::bytea)
         AS id,
       patient_first_name,
       patient_last_name,
@@ -53,9 +58,14 @@ CREATE TABLE case_study.hub_people AS (
   patients_people AS (
     SELECT
       sha256(
-        (COALESCE(patient_first_name::text, '') ||
-        COALESCE(patient_last_name::text, '') ||
-        COALESCE(patient_dob::text, ''))::bytea)
+        lower(
+          regexp_replace(
+            (COALESCE(patient_first_name::text, '') ||
+            COALESCE(patient_last_name::text, '') ||
+            COALESCE(patient_dob::text, '')),
+            '[^0-9a-zA-Z]+', '', 'g'
+          )
+        )::bytea)
         AS id,
       patient_first_name,
       patient_last_name,

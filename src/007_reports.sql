@@ -17,7 +17,7 @@ CREATE TABLE case_study.rep_most_expensive_companies AS (
   FROM
     case_study.sat_group_claim_aggregates AS agg
   INNER JOIN case_study.hub_groups AS groups
-    ON agg.groups_id = groups.id
+    ON agg.hub_id = groups.id
   ORDER BY 2 DESC
 );
 
@@ -25,7 +25,12 @@ CREATE TABLE case_study.rep_most_expensive_companies AS (
 DROP TABLE IF EXISTS case_study.rep_most_expensive_patients;
 CREATE TABLE case_study.rep_most_expensive_patients AS (
   SELECT
+    hub.patient_id,
+    sat.claim_total
   FROM
-    case_study.sat_patients_claim_aggregates
-  INNER JOIN 
+    case_study.sat_patients_claim_aggregates AS sat
+  INNER JOIN
+    case_study.hub_patients AS hub
+    ON sat.hub_id = hub.id
+  ORDER BY 2 DESC
 );
